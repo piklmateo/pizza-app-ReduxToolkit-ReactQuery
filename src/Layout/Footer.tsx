@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <div className="flex items-center justify-between bg-slate-950 px-6 py-6 text-slate-200">
@@ -6,7 +8,9 @@ const Footer = () => {
         <p>$32.00</p>
       </div>
       <div>
-        <span>OPEN CART</span>
+        <Link to="/cart">
+          <span>OPEN CART</span>
+        </Link>
       </div>
     </div>
   );

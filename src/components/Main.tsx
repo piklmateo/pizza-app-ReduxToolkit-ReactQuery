@@ -4,7 +4,7 @@ const Main = () => {
   const navigate = useNavigate();
   return (
     <main>
-      <div className="mt-40 flex flex-col items-center justify-center gap-5 text-wrap text-center">
+      <div className="mt-40 flex flex-col items-center justify-center gap-5 text-wrap text-center px-4">
         <h1 className="text-4xl text-slate-900">The best pizza .</h1>
         <h1 className="text-4xl text-yellow-500">Straight out of the oven, straight to you .</h1>
         <div className="space-y-4">
