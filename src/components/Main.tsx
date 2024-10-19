@@ -11,6 +11,7 @@ const Main = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (!name) return;
     dispatch(updateName(name));
     navigate("/menu");
   };
@@ -32,6 +33,7 @@ const Main = () => {
                 placeholder="Please enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </form>
           </div>
