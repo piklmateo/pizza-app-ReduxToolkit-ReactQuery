@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Username from "./Username";
 
 const Header = () => {
   return (
@@ -13,7 +14,7 @@ const Header = () => {
         id="search"
         placeholder="Search..."
       />
-      <p className="hidden sm:block">UserName</p>
+      <Username />
     </div>
   );
 };
