@@ -32,7 +32,10 @@ const Cart = () => {
               ))}
             </div>
             <div className="space-x-4">
-              <button className="hover:bg-yellow-300 hover:transition-colors px-4 py-2 uppercase font-medium rounded-full bg-yellow-400">
+              <button
+                onClick={() => navigate("/order")}
+                className="hover:bg-yellow-300 hover:transition-colors px-4 py-2 uppercase font-medium rounded-full bg-yellow-400"
+              >
                 Order pizzas
               </button>
               <button
