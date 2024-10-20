@@ -131,6 +131,40 @@
       },
       "totalPrice": 59,
       "priority": ""
+    },
+    {
+      "id": "2a17",
+      "cart": [
+        {
+          "pizzaId": 1,
+          "name": "Margherita",
+          "quantity": 1,
+          "unitPrice": 12,
+          "totalPrice": 12
+        },
+        {
+          "pizzaId": 4,
+          "name": "Prosciutto e Rucola",
+          "quantity": 1,
+          "unitPrice": 16,
+          "totalPrice": 16
+        },
+        {
+          "pizzaId": 7,
+          "name": "Napoli",
+          "quantity": 1,
+          "unitPrice": 16,
+          "totalPrice": 16
+        }
+      ],
+      "user": {
+        "name": "Auth",
+        "phone": "092223232",
+        "address": "jurice jure",
+        "isAuthenticated": true
+      },
+      "totalPrice": 44,
+      "priority": "on"
     }
   ]
 }

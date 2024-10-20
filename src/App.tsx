@@ -5,6 +5,7 @@ import Menupage from "./pages/Menupage";
 import AppLayout from "./Layout/AppLayout";
 import Cartpage from "./pages/Cartpage";
 import Formpage from "./pages/Formpage";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 const router = createBrowserRouter([
   {
@@ -16,15 +17,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/menu",
-        element: <Menupage />,
+        element: (
+          <ProtectedRoutes>
+            <Menupage />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "/cart",
-        element: <Cartpage />,
+        element: (
+          <ProtectedRoutes>
+            <Cartpage />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "/order",
-        element: <Formpage />,
+        element: (
+          <ProtectedRoutes>
+            <Formpage />
+          </ProtectedRoutes>
+        ),
       },
     ],
   },

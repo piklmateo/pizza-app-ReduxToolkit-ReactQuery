@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { updateName, User } from "../store/userSlice/userSlice";
+import { updateName } from "../store/userSlice/userSlice";
 
 const Main = () => {
   const [name, setName] = useState<string>("");
@@ -12,7 +12,7 @@ const Main = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!name) return;
-    dispatch(updateName(name));
+    dispatch(updateName({ name: name, isAuthenticated: true }));
     navigate("/menu");
   };
 

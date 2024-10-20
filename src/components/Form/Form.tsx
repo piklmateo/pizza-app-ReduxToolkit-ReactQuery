@@ -9,6 +9,7 @@ const Form = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state: any) => state.cart.cart);
   const userName = useSelector((state: any) => state.user.name);
+  const isAuthenticated = useSelector((state: any) => state.user.isAuthenticated);
   const totalPrice = cart.reduce((acc: number, item: Cart) => {
     return acc + item.totalPrice;
   }, 0);
@@ -30,6 +31,7 @@ const Form = () => {
           name: fname,
           phone: phone,
           address: address,
+          isAuthenticated: isAuthenticated,
         },
         totalPrice: totalPrice,
         priority: priority ? "on" : "",
