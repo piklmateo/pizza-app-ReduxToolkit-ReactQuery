@@ -2,9 +2,18 @@ import { useEffect } from "react";
 import OrderItem from "./OrderItem";
 import { getOrder } from "../../services/orderService";
 import { useNavigate, useParams } from "react-router-dom";
-import { Order as OrderInterface } from "../../store/orderSlice/orderSlice";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from "../Spinner";
+import { Cart } from "../../store/cartSlice/cartSlice";
+import { User } from "../../store/userSlice/userSlice";
+
+interface OrderInterface {
+  id: string;
+  cart: Cart[];
+  user: User;
+  totalPrice: number;
+  priority: string;
+}
 
 const Order = () => {
   const { id } = useParams();
