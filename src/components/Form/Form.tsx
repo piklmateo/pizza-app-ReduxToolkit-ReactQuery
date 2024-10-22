@@ -1,15 +1,17 @@
-import { useForm, SubmitHandler, FieldValues } from "react-hook-form"; // Make sure to import these types
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Cart, clearCart } from "../../store/cartSlice/cartSlice";
 import { createOrder } from "../../services/orderService";
 import { useNavigate } from "react-router";
+import useGeolocation from "../../hooks/useGeolocation";
+import { useEffect } from "react";
 import Spinner from "../Spinner";
 
 interface FormData {
   fname: string;
   phone: string;
   address: string;
-  priority: string;
+  priority: boolean;
 }
 
 const Form = () => {
@@ -18,30 +20,34 @@ const Form = () => {
   const cart = useSelector((state: any) => state.cart.cart);
   const userName = useSelector((state: any) => state.user.name);
   const isAuthenticated = useSelector((state: any) => state.user.isAuthenticated);
-  const totalPrice = cart.reduce((acc: number, item: Cart) => {
-    return acc + item.totalPrice;
-  }, 0);
+  const totalPrice = cart.reduce((acc: number, item: Cart) => acc + item.totalPrice, 0);
+  const { data: cityData, handleCurrentAddress, isError, isLoading } = useGeolocation();
 
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { isSubmitting },
   } = useForm<FormData>();
 
+  useEffect(() => {
+    if (cityData) {
+      setValue("address", `${cityData.city}, ${cityData.countryName}`);
+    }
+  }, [cityData, setValue]);
+
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
-      console.log(data);
-
       const { fname, phone, address, priority } = data;
       const order = {
-        cart: cart,
+        cart,
         user: {
           name: fname,
-          phone: phone,
-          address: address,
-          isAuthenticated: isAuthenticated,
+          phone,
+          address,
+          isAuthenticated,
         },
-        totalPrice: totalPrice,
+        totalPrice,
         priority: priority ? "on" : "",
       };
 
@@ -49,54 +55,69 @@ const Form = () => {
       dispatch(clearCart());
       navigate(`/orders/${id}`);
     } catch (error) {
-      console.error("error: ", error);
+      console.error("Order submission error:", error);
     }
   };
 
-  if (isSubmitting) return <Spinner />;
+  if (isError) navigate("/");
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="text-slate-950 p-4 text-lg sm:max-w-[40rem] sm:mx-auto">
-      <h1 className="text-2xl mb-6 ">Ready to order? Let's go!</h1>
+      <h1 className="text-2xl mb-6">Ready to order? Let's go!</h1>
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-2 mb-2">
           <label htmlFor="fname">First name</label>
           <input
-            className="rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3"
+            className="rounded-full border px-4 py-2 text-sm focus:ring focus:ring-yellow-400"
             type="text"
             id="fname"
             {...register("fname", { required: true })}
-            defaultValue={userName ? userName : ""}
+            defaultValue={userName || ""}
           />
         </div>
+
         <div className="flex flex-col gap-2 mb-2">
           <label htmlFor="phone">Phone number</label>
           <input
-            className="rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3"
+            className="rounded-full border px-4 py-2 text-sm focus:ring focus:ring-yellow-400"
             type="text"
             id="phone"
             {...register("phone", { required: true })}
           />
         </div>
+
         <div className="flex flex-col gap-2 mb-2">
-          <label htmlFor="address">Address</label>
+          <div className="flex justify-between items-center">
+            <label htmlFor="address">Address</label>
+            <button
+              onClick={handleCurrentAddress}
+              className="rounded-full px-4 py-2 uppercase bg-yellow-400 hover:bg-yellow-300 text-sm"
+              type="button"
+            >
+              Use current address
+            </button>
+          </div>
           <input
-            className="rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3"
+            className="rounded-full border px-4 py-2 text-sm focus:ring focus:ring-yellow-400"
             type="text"
             id="address"
             {...register("address", { required: true })}
           />
         </div>
-        <div className="flex gap-4 items-center justify-start my-4">
+
+        <div className="flex gap-4 items-center my-4">
           <input
-            className="h-6 w-6 accent-yellow-400 bg-gray-100 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
+            className="h-6 w-6 accent-yellow-400 focus:ring-2 focus:ring-yellow-400"
             type="checkbox"
             id="priority"
             {...register("priority")}
           />
           <label htmlFor="priority">Want to give your order priority?</label>
         </div>
-        <button className="rounded-full px-4 py-2 uppercase bg-yellow-400 hover:bg-yellow-300 transition-colors ">
+
+        <button className="rounded-full px-4 py-2 uppercase bg-yellow-400 hover:bg-yellow-300" disabled={isSubmitting}>
           Order now for ${totalPrice.toFixed(2)}
         </button>
       </form>
