@@ -1,22 +1,30 @@
-import { useEffect, useState } from "react";
 import { fetchPizzas } from "../../services/menuService";
 import MenuItem, { Pizza } from "./MenuItem";
 import { useSelector } from "react-redux";
+import { useQuery } from "@tanstack/react-query";
+import Spinner from "../Spinner";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 const Menu = () => {
-  const [menuItems, setMenuItems] = useState<Pizza[]>([]);
   const cart = useSelector((state: any) => state.cart.cart);
-
-  console.log(cart.length);
+  const navigate = useNavigate();
+  const { data, isError, isPending } = useQuery({
+    queryKey: ["menu"],
+    queryFn: fetchPizzas,
+  });
 
   useEffect(() => {
-    async function fetchMenuData() {
-      const data = await fetchPizzas();
-      setMenuItems(data.data);
+    if (isError) {
+      navigate("/");
     }
+  });
 
-    fetchMenuData();
-  }, []);
+  if (isPending) {
+    return <Spinner />;
+  }
+
+  const menuItems: Pizza[] = data.data;
 
   return (
     <div className="flex justify-center items-center m-2">

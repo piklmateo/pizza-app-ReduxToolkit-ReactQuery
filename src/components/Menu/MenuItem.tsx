@@ -24,6 +24,7 @@ const MenuItem = ({ menuItem, cart }: MenuItemProps) => {
     const newMenuItem = {
       pizzaId: menuItem.id,
       name: menuItem.name,
+      ingridients: menuItem.ingredients,
       quantity: quantity,
       unitPrice: menuItem.unitPrice,
       totalPrice: menuItem.unitPrice * quantity,

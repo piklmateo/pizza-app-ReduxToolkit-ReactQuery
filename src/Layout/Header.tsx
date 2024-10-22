@@ -1,7 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Username from "./Username";
+import { useState } from "react";
 
 const Header = () => {
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const navigate = useNavigate();
+  const handleSearchQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && searchQuery !== "") {
+      navigate(`/orders/${searchQuery}`);
+      setSearchQuery("");
+    }
+  };
+
   return (
     <div className="flex items-center justify-between bg-yellow-500 px-6 py-4 text-slate-900">
       <Link to="/">
@@ -13,6 +27,9 @@ const Header = () => {
         name="search"
         id="search"
         placeholder="Search..."
+        value={searchQuery}
+        onChange={handleSearchQueryChange}
+        onKeyDown={handleSearch}
       />
       <Username />
     </div>

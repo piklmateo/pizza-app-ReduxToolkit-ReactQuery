@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export interface Cart {
   pizzaId: number;
   name: string;
+  ingridients: string[];
   quantity: number;
   unitPrice: number;
   totalPrice: number;

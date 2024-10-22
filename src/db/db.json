@@ -1,30 +1,42 @@
 {
   "orders": [
     {
-      "id": "1",
+      "id": "dc86",
       "cart": [
         {
-          "pizzaId": 1,
-          "name": "Margherita",
-          "quantity": 1,
-          "unitPrice": 12,
-          "totalPrice": 12
+          "pizzaId": 11,
+          "name": "Spinach and Mushroom",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "spinach",
+            "mushrooms"
+          ],
+          "quantity": 2,
+          "unitPrice": 15,
+          "totalPrice": 30
         }
       ],
       "user": {
-        "name": "Marko",
+        "name": "Mateo",
         "phone": "0955352889",
-        "address": "spinciceva"
+        "address": "jurice jure",
+        "isAuthenticated": true
       },
-      "totalPrice": 12,
+      "totalPrice": 30,
       "priority": "on"
     },
     {
-      "id": "e773",
+      "id": "9eb5",
       "cart": [
         {
           "pizzaId": 1,
           "name": "Margherita",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "basil"
+          ],
           "quantity": 1,
           "unitPrice": 12,
           "totalPrice": 12
@@ -32,6 +44,11 @@
         {
           "pizzaId": 3,
           "name": "Romana",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto"
+          ],
           "quantity": 1,
           "unitPrice": 15,
           "totalPrice": 15
@@ -39,6 +56,80 @@
         {
           "pizzaId": 4,
           "name": "Prosciutto e Rucola",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto",
+            "arugula"
+          ],
+          "quantity": 1,
+          "unitPrice": 16,
+          "totalPrice": 16
+        },
+        {
+          "pizzaId": 5,
+          "name": "Diavola",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "spicy salami",
+            "chili flakes"
+          ],
+          "quantity": 1,
+          "unitPrice": 16,
+          "totalPrice": 16
+        }
+      ],
+      "user": {
+        "name": "Mateo",
+        "phone": "0955352889",
+        "address": "Dobrište",
+        "isAuthenticated": true
+      },
+      "totalPrice": 59,
+      "priority": "on"
+    },
+    {
+      "id": "272a",
+      "cart": [
+        {
+          "pizzaId": 17,
+          "name": "Roasted Veggie",
+          "ingridients": [
+            "marinara",
+            "mozzarella",
+            "zucchini",
+            "eggplant",
+            "peppers",
+            "onions"
+          ],
+          "quantity": 1,
+          "unitPrice": 15,
+          "totalPrice": 15
+        },
+        {
+          "pizzaId": 16,
+          "name": "Eggplant Parmesan",
+          "ingridients": [
+            "marinara",
+            "mozzarella",
+            "eggplant",
+            "parmesan"
+          ],
+          "quantity": 1,
+          "unitPrice": 15,
+          "totalPrice": 15
+        },
+        {
+          "pizzaId": 15,
+          "name": "Pesto Chicken",
+          "ingridients": [
+            "pesto",
+            "mozzarella",
+            "chicken",
+            "sun-dried tomatoes",
+            "spinach"
+          ],
           "quantity": 1,
           "unitPrice": 16,
           "totalPrice": 16
@@ -47,57 +138,60 @@
       "user": {
         "name": "Mateo",
         "phone": "0955352665",
-        "address": "Strossmayerova"
+        "address": "313131",
+        "isAuthenticated": true
       },
-      "totalPrice": 43,
+      "totalPrice": 46,
       "priority": "on"
     },
     {
-      "id": "634f",
+      "id": "0608",
       "cart": [
-        {
-          "pizzaId": 1,
-          "name": "Margherita",
-          "quantity": 1,
-          "unitPrice": 12,
-          "totalPrice": 12
-        },
         {
           "pizzaId": 3,
           "name": "Romana",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto"
+          ],
           "quantity": 1,
           "unitPrice": 15,
           "totalPrice": 15
         },
         {
-          "pizzaId": 4,
-          "name": "Prosciutto e Rucola",
+          "pizzaId": 1,
+          "name": "Margherita",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "basil"
+          ],
           "quantity": 1,
-          "unitPrice": 16,
-          "totalPrice": 16
-        },
-        {
-          "pizzaId": 5,
-          "name": "Diavola",
-          "quantity": 1,
-          "unitPrice": 16,
-          "totalPrice": 16
+          "unitPrice": 12,
+          "totalPrice": 12
         }
       ],
       "user": {
-        "name": "Jurica",
+        "name": "Mateo",
         "phone": "0955352665",
-        "address": "Belica, Belica , Croatia"
+        "address": "Belica, Belica , Croatia",
+        "isAuthenticated": true
       },
-      "totalPrice": 59,
+      "totalPrice": 27,
       "priority": "on"
     },
     {
-      "id": "db6d",
+      "id": "d7ae",
       "cart": [
         {
           "pizzaId": 1,
           "name": "Margherita",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "basil"
+          ],
           "quantity": 1,
           "unitPrice": 12,
           "totalPrice": 12
@@ -105,65 +199,319 @@
         {
           "pizzaId": 3,
           "name": "Romana",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto"
+          ],
           "quantity": 1,
           "unitPrice": 15,
           "totalPrice": 15
-        },
-        {
-          "pizzaId": 4,
-          "name": "Prosciutto e Rucola",
-          "quantity": 1,
-          "unitPrice": 16,
-          "totalPrice": 16
-        },
-        {
-          "pizzaId": 5,
-          "name": "Diavola",
-          "quantity": 1,
-          "unitPrice": 16,
-          "totalPrice": 16
         }
       ],
       "user": {
-        "name": "Perica",
-        "phone": "0955352238",
-        "address": "Nesto"
-      },
-      "totalPrice": 59,
-      "priority": ""
-    },
-    {
-      "id": "2a17",
-      "cart": [
-        {
-          "pizzaId": 1,
-          "name": "Margherita",
-          "quantity": 1,
-          "unitPrice": 12,
-          "totalPrice": 12
-        },
-        {
-          "pizzaId": 4,
-          "name": "Prosciutto e Rucola",
-          "quantity": 1,
-          "unitPrice": 16,
-          "totalPrice": 16
-        },
-        {
-          "pizzaId": 7,
-          "name": "Napoli",
-          "quantity": 1,
-          "unitPrice": 16,
-          "totalPrice": 16
-        }
-      ],
-      "user": {
-        "name": "Auth",
-        "phone": "092223232",
+        "name": "Mateo",
+        "phone": "0955352665",
         "address": "jurice jure",
         "isAuthenticated": true
       },
+      "totalPrice": 27,
+      "priority": "on"
+    },
+    {
+      "id": "4db7",
+      "cart": [
+        {
+          "pizzaId": 11,
+          "name": "Spinach and Mushroom",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "spinach",
+            "mushrooms"
+          ],
+          "quantity": 1,
+          "unitPrice": 15,
+          "totalPrice": 15
+        },
+        {
+          "pizzaId": 10,
+          "name": "Hawaiian",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "pineapple",
+            "ham"
+          ],
+          "quantity": 1,
+          "unitPrice": 15,
+          "totalPrice": 15
+        },
+        {
+          "pizzaId": 9,
+          "name": "Pepperoni",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "pepperoni"
+          ],
+          "quantity": 1,
+          "unitPrice": 14,
+          "totalPrice": 14
+        }
+      ],
+      "user": {
+        "name": "Mateo",
+        "phone": "Marija",
+        "address": "Belica, Belica , Croatia",
+        "isAuthenticated": true
+      },
       "totalPrice": 44,
+      "priority": "on"
+    },
+    {
+      "id": "6db6",
+      "cart": [
+        {
+          "pizzaId": 18,
+          "name": "Tofu and Mushroom",
+          "ingridients": [
+            "marinara",
+            "mozzarella",
+            "tofu",
+            "mushrooms",
+            "bell peppers"
+          ],
+          "quantity": 1,
+          "unitPrice": 15,
+          "totalPrice": 15
+        },
+        {
+          "pizzaId": 17,
+          "name": "Roasted Veggie",
+          "ingridients": [
+            "marinara",
+            "mozzarella",
+            "zucchini",
+            "eggplant",
+            "peppers",
+            "onions"
+          ],
+          "quantity": 1,
+          "unitPrice": 15,
+          "totalPrice": 15
+        },
+        {
+          "pizzaId": 16,
+          "name": "Eggplant Parmesan",
+          "ingridients": [
+            "marinara",
+            "mozzarella",
+            "eggplant",
+            "parmesan"
+          ],
+          "quantity": 1,
+          "unitPrice": 15,
+          "totalPrice": 15
+        }
+      ],
+      "user": {
+        "name": "Mateo",
+        "phone": "0955352665",
+        "address": "Dobrište",
+        "isAuthenticated": true
+      },
+      "totalPrice": 45,
+      "priority": "on"
+    },
+    {
+      "id": "faf2",
+      "cart": [
+        {
+          "pizzaId": 3,
+          "name": "Romana",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto"
+          ],
+          "quantity": 1,
+          "unitPrice": 15,
+          "totalPrice": 15
+        },
+        {
+          "pizzaId": 4,
+          "name": "Prosciutto e Rucola",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto",
+            "arugula"
+          ],
+          "quantity": 1,
+          "unitPrice": 16,
+          "totalPrice": 16
+        }
+      ],
+      "user": {
+        "name": "Mateo",
+        "phone": "098 983 3910",
+        "address": "Strossmayerova",
+        "isAuthenticated": true
+      },
+      "totalPrice": 31,
+      "priority": "on"
+    },
+    {
+      "id": "4864",
+      "cart": [
+        {
+          "pizzaId": 3,
+          "name": "Romana",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto"
+          ],
+          "quantity": 1,
+          "unitPrice": 15,
+          "totalPrice": 15
+        },
+        {
+          "pizzaId": 4,
+          "name": "Prosciutto e Rucola",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto",
+            "arugula"
+          ],
+          "quantity": 1,
+          "unitPrice": 16,
+          "totalPrice": 16
+        },
+        {
+          "pizzaId": 5,
+          "name": "Diavola",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "spicy salami",
+            "chili flakes"
+          ],
+          "quantity": 1,
+          "unitPrice": 16,
+          "totalPrice": 16
+        }
+      ],
+      "user": {
+        "name": "Mateo",
+        "phone": "Marija",
+        "address": "Strossmayerova",
+        "isAuthenticated": true
+      },
+      "totalPrice": 47,
+      "priority": "on"
+    },
+    {
+      "id": "4447",
+      "cart": [
+        {
+          "pizzaId": 3,
+          "name": "Romana",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto"
+          ],
+          "quantity": 1,
+          "unitPrice": 15,
+          "totalPrice": 15
+        },
+        {
+          "pizzaId": 4,
+          "name": "Prosciutto e Rucola",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto",
+            "arugula"
+          ],
+          "quantity": 1,
+          "unitPrice": 16,
+          "totalPrice": 16
+        },
+        {
+          "pizzaId": 5,
+          "name": "Diavola",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "spicy salami",
+            "chili flakes"
+          ],
+          "quantity": 1,
+          "unitPrice": 16,
+          "totalPrice": 16
+        }
+      ],
+      "user": {
+        "name": "Mateo",
+        "phone": "0955352665",
+        "address": "Dobrište",
+        "isAuthenticated": true
+      },
+      "totalPrice": 47,
+      "priority": "on"
+    },
+    {
+      "id": "0c37",
+      "cart": [
+        {
+          "pizzaId": 1,
+          "name": "Margherita",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "basil"
+          ],
+          "quantity": 1,
+          "unitPrice": 12,
+          "totalPrice": 12
+        },
+        {
+          "pizzaId": 3,
+          "name": "Romana",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto"
+          ],
+          "quantity": 1,
+          "unitPrice": 15,
+          "totalPrice": 15
+        },
+        {
+          "pizzaId": 4,
+          "name": "Prosciutto e Rucola",
+          "ingridients": [
+            "tomato",
+            "mozzarella",
+            "prosciutto",
+            "arugula"
+          ],
+          "quantity": 1,
+          "unitPrice": 16,
+          "totalPrice": 16
+        }
+      ],
+      "user": {
+        "name": "Mateo",
+        "phone": "3131",
+        "address": "313131",
+        "isAuthenticated": true
+      },
+      "totalPrice": 43,
       "priority": "on"
     }
   ]

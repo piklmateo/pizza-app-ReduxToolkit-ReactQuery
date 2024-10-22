@@ -1,5 +1,18 @@
 import { Order } from "../store/orderSlice/orderSlice";
 
+export const getOrder = async (id: string) => {
+  try {
+    const res = await fetch(`http://localhost:9000/orders/${id}`);
+
+    if (!res.ok) throw new Error("Error while fetching order");
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error: ", error);
+  }
+};
+
 export const createOrder = async (order: Order) => {
   try {
     const res = await fetch("http://localhost:9000/orders", {

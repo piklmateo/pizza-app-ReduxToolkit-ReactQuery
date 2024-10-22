@@ -1,8 +1,16 @@
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler, FieldValues } from "react-hook-form"; // Make sure to import these types
 import { useDispatch, useSelector } from "react-redux";
 import { Cart, clearCart } from "../../store/cartSlice/cartSlice";
 import { createOrder } from "../../services/orderService";
 import { useNavigate } from "react-router";
+import Spinner from "../Spinner";
+
+interface FormData {
+  fname: string;
+  phone: string;
+  address: string;
+  priority: string;
+}
 
 const Form = () => {
   const navigate = useNavigate();
@@ -17,10 +25,10 @@ const Form = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm();
+    formState: { isSubmitting },
+  } = useForm<FormData>();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       console.log(data);
 
@@ -37,13 +45,15 @@ const Form = () => {
         priority: priority ? "on" : "",
       };
 
-      await createOrder(order);
+      const { id } = await createOrder(order);
       dispatch(clearCart());
-      navigate("/menu");
+      navigate(`/orders/${id}`);
     } catch (error) {
       console.error("error: ", error);
     }
   };
+
+  if (isSubmitting) return <Spinner />;
 
   return (
     <div className="text-slate-950 p-4 text-lg sm:max-w-[40rem] sm:mx-auto">
@@ -55,26 +65,26 @@ const Form = () => {
             className="rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3"
             type="text"
             id="fname"
-            {...register("fname")}
+            {...register("fname", { required: true })}
             defaultValue={userName ? userName : ""}
           />
         </div>
-        <div className="flex flex-col gap-2 mb-2 text-">
+        <div className="flex flex-col gap-2 mb-2">
           <label htmlFor="phone">Phone number</label>
           <input
             className="rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3"
             type="text"
             id="phone"
-            {...register("phone")}
+            {...register("phone", { required: true })}
           />
         </div>
-        <div className="flex flex-col gap-2  mb-2">
+        <div className="flex flex-col gap-2 mb-2">
           <label htmlFor="address">Address</label>
           <input
             className="rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3"
             type="text"
             id="address"
-            {...register("address")}
+            {...register("address", { required: true })}
           />
         </div>
         <div className="flex gap-4 items-center justify-start my-4">
@@ -84,10 +94,10 @@ const Form = () => {
             id="priority"
             {...register("priority")}
           />
-          <span>Want to give your order priority?</span>
+          <label htmlFor="priority">Want to give your order priority?</label>
         </div>
         <button className="rounded-full px-4 py-2 uppercase bg-yellow-400 hover:bg-yellow-300 transition-colors ">
-          Order now from X
+          Order now for ${totalPrice.toFixed(2)}
         </button>
       </form>
     </div>
